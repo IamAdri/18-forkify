@@ -27,7 +27,6 @@ const controlRecipes = async function () {
     //2)Rendering the recipe
     recipeView.render(model.state.recipe);
   } catch (err) {
-    // alert(err);
     console.error(`${err.message}: ${err.stack}`);
     recipeView.renderError();
   }
@@ -96,7 +95,6 @@ const controlAddRecipe = async function (newRecipe) {
     //Spinner
     addRecipeView.renderSpinner();
     await model.uploadRecipe(newRecipe);
-    console.log(model.state.recipe);
 
     //Render recipe
     recipeView.render(model.state.recipe);
@@ -109,7 +107,6 @@ const controlAddRecipe = async function (newRecipe) {
 
     //Change ID in the url
     window.history.pushState(null, '', `#${model.state.recipe.id}`);
-    
 
     //Close form window
     setTimeout(function () {
